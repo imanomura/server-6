@@ -8,3 +8,10 @@ await kv.set(['ブラッキー'], { type: '悪', level: 35 });
 const pkmn = await kv.get(['pokemon', 'ブラッキー']);
 console.log(pkmn.key);
 console.log(pkmn.value);
+
+const pkmns = await kv.list({ prefix: ['pokemon'] });
+
+for await (const pkmn of pkmns) {
+  console.log(pkmn.key);
+  console.log(pkmn.value);
+}
