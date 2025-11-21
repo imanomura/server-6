@@ -15,3 +15,14 @@ for await (const pkmn of pkmns) {
   console.log(pkmn.key);
   console.log(pkmn.value);
 }
+
+let woter_pokemon = await kv.get(['pokemon', 'シャワーズ']);
+console.log(woter_pokemon.key, woter_pokemon.value);
+
+await kv.delete(['pokemon', 'シャワーズ']);
+
+woter_pokemon = await kv.get(['pokemon', 'シャワーズ']);
+console.log(woter_pokemon.value);
+
+//出来そうなら
+//3階層とか表示すべてしてみるとか試す
